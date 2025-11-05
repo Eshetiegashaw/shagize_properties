@@ -1,0 +1,17 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+import { FrappeProvider } from 'frappe-react-sdk';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <FrappeProvider
+      siteName={import.meta.env.VITE_SITE_NAME}
+      socketPort={import.meta.env.VITE_SOCKET_PORT}
+    >
+      <App />
+    </FrappeProvider>
+  </StrictMode>,
+)
