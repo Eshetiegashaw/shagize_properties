@@ -2,10 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import proxyOptions from "./proxyOptions";
 import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 
-// https://vite.dev/config/
 export default defineConfig({
-	plugins: [react()],
+	plugins: [react(), tailwindcss()],
 	server: {
 		port: 8080,
 		proxy: proxyOptions,
@@ -16,7 +16,7 @@ export default defineConfig({
 		},
 	},
 	build: {
-		outDir: "../real_estate/public/frontend",
+		outDir: "../real_estate/public/real_estate_app",
 		emptyOutDir: true,
 		target: "es2015",
 	},

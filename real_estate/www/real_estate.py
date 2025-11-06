@@ -10,9 +10,10 @@ CLOSING_SCRIPT_TAG_PATTERN = re.compile(r"</script\>")
 
 
 def get_context(context):
-    # csrf_token = frappe.sessions.get_csrf_token()
-    # frappe.db.commit()
+    csrf_token = frappe.sessions.get_csrf_token()
+    frappe.db.commit()
     # context.csrf_token = csrf_token
+    print(f"\n\n the csrf token is {csrf_token} \n\n")
 
     if frappe.session.user == "Guest":
         boot = frappe.website.utils.get_boot_data()
@@ -31,6 +32,7 @@ def get_context(context):
         {
             "build_version": frappe.utils.get_build_version(),
             "boot": boot_json,
+            "csrf_token": csrf_token,
         }
     )
 

@@ -26,12 +26,14 @@ if (!config) {
 	console.log("No common_site_config.json found, using default port 8080");
 }
 
+console.log("The config is ", config);
+
 export default {
 	"^/(app|api|assets|files|private)": {
 		target: `http://127.0.0.1:${webserver_port}`,
 		ws: true,
-		changeOrigin: true,
-		secure: false,
+		// changeOrigin: true,
+		// secure: false,
 		router: function (req) {
 			const site_name = req.headers.host.split(":")[0];
 			return `http://${site_name}:${webserver_port}`;
