@@ -7,5 +7,5 @@ node_modules
 __pycache__
 
 
-real_estate/public/frontend/
+real_estate/public/real_estate_app/
 real_estate/www/real_estate.html

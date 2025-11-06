@@ -5,10 +5,19 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "postinstall": "cd frontend && yarn install",
-        "dev": "cd frontend && yarn dev",
-        "build": "cd frontend && yarn build"
+        "postinstall": "cd real_estate_app && yarn install",
+        "dev": "cd real_estate_app && yarn dev",
+        "build": "cd real_estate_app && yarn build"
     },
     "author": "eshetie@info.com",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "@shadcn/ui": "^0.0.4",
+        "autoprefixer": "^10.4.21",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^4.1.16"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.16"
+    }
 }
