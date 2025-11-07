@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./pages/login";
-import HomePage from "./pages/home";
-import { ProtectedRoute } from "./utils/protectedRoute";
-import { RedirectIfAuth } from "./utils/redirectAuth";
-import NotFoundPage from "./pages/404";
-import Layout from "./pages/layout";
+import LoginPage from "@/pages/login";
+import HomePage from "@/pages/home";
+import { ProtectedRoute } from "@/utils/protectedRoute";
+import { RedirectIfAuth } from "@/utils/redirectAuth";
+import NotFoundPage from "@/pages/404";
+import Layout from "@/pages/layout";
+import Dashboard from "@/pages/reports/dashboard";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           }
         >
           <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
 
         <Route

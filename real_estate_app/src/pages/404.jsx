@@ -6,7 +6,7 @@ function NotFoundPage() {
     const navigate = useNavigate();
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+        <div className="flex items-center justify-center min-h-screen px-4">
             <Card className="max-w-md w-full text-center shadow-md">
                 <CardHeader>
                     <CardTitle className="text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-orange-500 to-blue-600">
