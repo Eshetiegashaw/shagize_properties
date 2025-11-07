@@ -5,13 +5,29 @@ import { Button } from "@/components/ui/button";
 import { useSidebar } from "@/hooks/use-sidebar";
 import { useStore } from "@/hooks/use-store";
 import { cn } from "@/lib/utils";
+import { useFrappeGetDoc } from "frappe-react-sdk";
 import { PanelsTopLeft } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "@/assets/logos/logo-icon-transparent.png";
 
 export function Sidebar() {
+  const [company, setCompany] = useState('')
+  const { data: companyData } = useFrappeGetDoc("Company");
+
+  useEffect(() => {
+    if (companyData) {
+      setCompany(companyData?.[0]?.name); // safe access
+    }
+  }, [companyData]);
+
+
   const sidebar = useStore(useSidebar, (x) => x);
   if (!sidebar) return null;
   const { isOpen, toggleOpen, getOpenState, setIsHover, settings } = sidebar;
+
+  // console.log('isOpen', isOpen, 'toggleOpen', toggleOpen, 'setIsHover', setIsHover, 'settings', settings);
+
   return (
     <aside
       className={cn(
@@ -35,7 +51,9 @@ export function Sidebar() {
           asChild
         >
           <Link href="/dashboard" className="flex items-center gap-2">
-            <PanelsTopLeft className="w-6 h-6 mr-1" />
+            {/* <PanelsTopLeft className="w-6 h-6 mr-1" /> */}
+            <img src={logo} alt="ST" className="w-8 h-8 mb-1" />
+
             <h1
               className={cn(
                 "font-bold text-lg whitespace-nowrap transition-[transform,opacity,display] ease-in-out duration-300",
@@ -44,7 +62,7 @@ export function Sidebar() {
                   : "translate-x-0 opacity-100"
               )}
             >
-              Brand
+              {company}
             </h1>
           </Link>
         </Button>

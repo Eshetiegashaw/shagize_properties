@@ -10,8 +10,21 @@ import {
   SheetTrigger,
   SheetTitle
 } from "@/components/ui/sheet";
+import { useEffect, useState } from "react";
+import { useFrappeGetDoc } from "frappe-react-sdk";
+import logo from "@/assets/logos/logo-icon-transparent.png"; // adjust the path as necessary
+
 
 export function SheetMenu() {
+  const [company, setCompany] = useState('')
+  const { data: companyData } = useFrappeGetDoc("Company");
+
+  useEffect(() => {
+    if (companyData) {
+      setCompany(companyData?.[0]?.name); // safe access
+    }
+  }, [companyData]);
+
   return (
     <Sheet>
       <SheetTrigger className="lg:hidden" asChild>
@@ -27,8 +40,9 @@ export function SheetMenu() {
             asChild
           >
             <Link href="/dashboard" className="flex items-center gap-2">
-              <PanelsTopLeft className="w-6 h-6 mr-1" />
-              <SheetTitle className="font-bold text-lg">Brand</SheetTitle>
+              {/* <PanelsTopLeft className="w-6 h-6 mr-1" /> */}
+              <img src={logo} alt="ST" className="w-8 h-8 mb-1" />
+              <SheetTitle className="font-bold text-lg">{company}</SheetTitle>
             </Link>
           </Button>
         </SheetHeader>
