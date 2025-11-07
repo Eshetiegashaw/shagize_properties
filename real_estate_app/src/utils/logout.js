@@ -6,7 +6,6 @@ export const useLogout = () => {
 	const { logout } = useFrappeAuth();
 
 	const handleLogout = async () => {
-		console.log("user logged out");
 		try {
 			await logout();
 			navigate("/login", { replace: true });

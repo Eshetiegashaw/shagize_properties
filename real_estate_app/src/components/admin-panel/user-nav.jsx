@@ -48,15 +48,26 @@ export function UserNav() {
         <Tooltip delayDuration={100}>
           <TooltipTrigger asChild>
             <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                className="relative h-8 w-8 rounded-full"
+              <div
+                className="relative h-8 w-8 rounded-full cursor-pointer overflow-hidden 
+                     flex items-center justify-center transition 
+                     hover:ring-2 hover:ring-green-400 hover:ring-offset-2 
+                     focus-visible:ring-2 focus-visible:ring-green-400 focus-visible:ring-offset-2"
               >
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src="#" alt="Avatar" />
-                  <AvatarFallback className="bg-transparent">{currentUser ? currentUser.slice(0, 2).toUpperCase() : "NA"}</AvatarFallback>
+                <Avatar className="h-full w-full rounded-full bg-green-100">
+                  {currentUser?.user_image ? (
+                    <AvatarImage
+                      src={currentUser.user_image}
+                      alt="User Avatar"
+                      className="object-cover h-full w-full rounded-full"
+                    />
+                  ) : (
+                    <AvatarFallback className="bg-green-100 text-green-800 font-semibold">
+                      {currentUser?.slice(0, 2).toUpperCase() || "NA"}
+                    </AvatarFallback>
+                  )}
                 </Avatar>
-              </Button>
+              </div>
             </DropdownMenuTrigger>
           </TooltipTrigger>
           <TooltipContent side="bottom">Profile</TooltipContent>
@@ -74,23 +85,29 @@ export function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {/* <DropdownMenuItem className="hover:cursor-pointer" asChild>
+          <DropdownMenuItem className="hover:cursor-pointer" asChild>
             <Link href="/dashboard" className="flex items-center">
-              <LayoutGrid className="w-4 h-4 mr-3 text-muted-foreground" />
-              Dashboard
+              {/* <LayoutGrid className="w-4 h-4 mr-3 text-muted-foreground" /> */}
+              My Setting
             </Link>
-          </DropdownMenuItem> */}
+          </DropdownMenuItem>
           <DropdownMenuItem className="hover:cursor-pointer" asChild>
             <Link href="/account" className="flex items-center">
-              <SettingsIcon className="w-4 h-4 mr-3 text-muted-foreground" />
-              Profile
+              {/* <SettingsIcon className="w-4 h-4 mr-3 text-muted-foreground" /> */}
+              My Profile
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem className="hover:cursor-pointer" asChild>
+            <Link href="/account" className="flex items-center">
+              {/* <SettingsIcon className="w-4 h-4 mr-3 text-muted-foreground" /> */}
+              Toggle Themes
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:cursor-pointer" onClick={() => handleLogout()}>
-          <LogOut className="w-4 h-4 mr-3 text-muted-foreground" />
-          Sign out
+          {/* <LogOut className="w-4 h-4 mr-3 text-muted-foreground" /> */}
+          Log out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
