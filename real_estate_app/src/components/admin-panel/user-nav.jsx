@@ -1,7 +1,7 @@
 "use client";
 
 import { Link, useNavigate } from "react-router-dom";
-import { LayoutGrid, LogOut, User } from "lucide-react";
+import { LayoutGrid, LogOut, Settings2, SettingsIcon, User } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -20,21 +20,26 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import { useFrappeAuth } from "frappe-react-sdk";
+import { useFrappeAuth, useFrappeGetDoc } from "frappe-react-sdk";
+
+import { useEffect, useState } from "react";
+import { useLogout } from "@/utils/logout";
+import { FaUserSecret } from "react-icons/fa";
 
 export function UserNav() {
-  const navigate = useNavigate();
-  const { logout, currentUser } = useFrappeAuth();
+  const { currentUser } = useFrappeAuth();
+  const handleLogout = useLogout();
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate("/login", { replace: true });
-    } catch (error) {
-      console.error("Logout failed:", error);
-      alert("Logout failed. Please try again.");
-    }
-  };
+  const [userData, setUserData] = useState(null);
+  const { data, error } = useFrappeGetDoc("User", currentUser);
+
+  useEffect(() => {
+    if (data) setUserData(data);
+  }, [data]);
+
+
+  console.log(userData);
+
 
 
   return (
@@ -58,27 +63,27 @@ export function UserNav() {
         </Tooltip>
       </TooltipProvider>
 
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent className="w-40" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{currentUser}</p>
+            <p className="text-sm font-medium leading-none">{data?.full_name || currentUser}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              johndoe@example.com
+              {currentUser}
             </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="hover:cursor-pointer" asChild>
+          {/* <DropdownMenuItem className="hover:cursor-pointer" asChild>
             <Link href="/dashboard" className="flex items-center">
               <LayoutGrid className="w-4 h-4 mr-3 text-muted-foreground" />
               Dashboard
             </Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem className="hover:cursor-pointer" asChild>
             <Link href="/account" className="flex items-center">
-              <User className="w-4 h-4 mr-3 text-muted-foreground" />
-              Account
+              <SettingsIcon className="w-4 h-4 mr-3 text-muted-foreground" />
+              Profile
             </Link>
           </DropdownMenuItem>
         </DropdownMenuGroup>

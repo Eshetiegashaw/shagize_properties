@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Ellipsis, LogOut } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -14,12 +14,19 @@ import {
   TooltipContent,
   TooltipProvider
 } from "@/components/ui/tooltip";
+import { useFrappeAuth } from "frappe-react-sdk";
+import { useLogout } from "@/utils/logout";
+
+
 
 export function Menu({ isOpen }) {
   // const pathname = usePathname();
   const location = useLocation();
   const pathname = location.pathname;
   const menuList = getMenuList(pathname);
+
+  const handleLogout = useLogout();
+
 
   return (
     <ScrollArea className="[&>div>div[style]]:block!">
@@ -115,9 +122,9 @@ export function Menu({ isOpen }) {
               <Tooltip delayDuration={100}>
                 <TooltipTrigger asChild>
                   <Button
-                    onClick={() => { }}
+                    onClick={() => handleLogout()}
                     variant="outline"
-                    className="w-full justify-center h-10 mt-5"
+                    className="w-full justify-center h-10 mt-5 text-orange-700 hover:text-orange-600"
                   >
                     <span className={cn(isOpen === false ? "" : "mr-4")}>
                       <LogOut size={18} />
@@ -133,7 +140,7 @@ export function Menu({ isOpen }) {
                   </Button>
                 </TooltipTrigger>
                 {isOpen === false && (
-                  <TooltipContent side="right">Sign out</TooltipContent>
+                  <TooltipContent side="right" onClick={() => handleLogout()}>Sign out</TooltipContent>
                 )}
               </Tooltip>
             </TooltipProvider>
