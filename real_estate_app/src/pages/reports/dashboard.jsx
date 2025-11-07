@@ -1,13 +1,10 @@
-import { useFrappeAuth, useFrappeGetDoc } from "frappe-react-sdk";
-import { useNavigate } from "react-router-dom";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
+import { useFrappeGetDoc } from "frappe-react-sdk";
 import { ContentLayout } from "@/components/admin-panel/content-layout";
-import Layout from "./layout";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 
-function HomePage() {
+function Dashboard() {
     const [company, setCompany] = useState(null);
     const [users, setUsers] = useState([]);
 
@@ -28,7 +25,7 @@ function HomePage() {
 
 
     return (
-        <ContentLayout title="User List">
+        <ContentLayout title="Dashboard">
             <div className="min-h-screen p-1">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {users.length > 0 ? (
@@ -51,4 +48,4 @@ function HomePage() {
     );
 }
 
-export default HomePage;
+export default Dashboard;
