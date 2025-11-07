@@ -23,7 +23,7 @@ export default function PlaceholderContent() {
                 rel="noopener noreferrer"
                 className="text-xs text-muted-foreground"
               >
-                Designed by Freepik
+                Designed by Shagize Technologies
               </Link>
             </div>
           </div>

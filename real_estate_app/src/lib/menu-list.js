@@ -1,4 +1,14 @@
-import { Tag, Users, Settings, Bookmark, SquarePen, LayoutGrid } from "lucide-react";
+import {
+	Tag,
+	Users,
+	Settings,
+	Bookmark,
+	SquarePen,
+	LayoutGrid,
+	Calendar,
+	UserCircleIcon,
+	Building,
+} from "lucide-react";
 
 export function getMenuList(pathname) {
 	return [
@@ -9,6 +19,48 @@ export function getMenuList(pathname) {
 					href: "/dashboard",
 					label: "Dashboard",
 					icon: LayoutGrid,
+					submenus: [],
+				},
+			],
+		},
+		{
+			groupLabel: "",
+			menus: [
+				{
+					href: "/properties",
+					label: "Properties",
+					icon: Building,
+					submenus: [
+						{
+							href: "/properties",
+							label: "Properties",
+						},
+						{
+							href: "/floors",
+							label: "Floors",
+						},
+						{
+							href: "/units",
+							label: "Units",
+						},
+					],
+				},
+				{
+					href: "/agents",
+					label: "Agents",
+					icon: UserCircleIcon,
+					submenus: [],
+				},
+				{
+					href: "/clients",
+					label: "Clients",
+					icon: Users,
+					submenus: [],
+				},
+				{
+					href: "/appointments",
+					label: "Appointments",
+					icon: Calendar,
 					submenus: [],
 				},
 			],
