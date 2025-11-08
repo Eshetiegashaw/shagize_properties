@@ -6,6 +6,8 @@ import { RedirectIfAuth } from "@/utils/redirectAuth";
 import NotFoundPage from "@/pages/404";
 import Layout from "@/pages/layout";
 import Dashboard from "@/pages/reports/dashboard";
+import PropertyLists from "@/pages/property/properties";
+import FloorLists from "./pages/property/floors";
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
         >
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/properties" element={<PropertyLists />} />
+          <Route path="/floors" element={<FloorLists />} />
         </Route>
 
         <Route

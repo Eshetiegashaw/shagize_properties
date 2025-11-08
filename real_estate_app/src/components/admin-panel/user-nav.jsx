@@ -37,11 +37,6 @@ export function UserNav() {
     if (data) setUserData(data);
   }, [data]);
 
-
-  console.log(userData);
-
-
-
   return (
     <DropdownMenu>
       <TooltipProvider disableHoverableContent>

@@ -26,7 +26,7 @@ if (!config) {
 	console.log("No common_site_config.json found, using default port 8080");
 }
 
-console.log("The config is ", config);
+// console.log("The config is ", config);
 
 export default {
 	"^/(app|api|assets|files|private)": {

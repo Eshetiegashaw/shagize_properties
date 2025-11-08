@@ -10,7 +10,6 @@ export default function Layout() {
                 <main className="flex-1 p-6 lg:ml-72">
                     <Outlet />
                 </main>
-                {/* <Footer className="lg:ml-72" /> */}
             </div>
         </AdminPanelLayout>
     );

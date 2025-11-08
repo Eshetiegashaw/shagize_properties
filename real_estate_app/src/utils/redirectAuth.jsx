@@ -4,7 +4,6 @@ import { useFrappeAuth } from "frappe-react-sdk";
 
 export function RedirectIfAuth({ children }) {
     const { currentUser, isLoading } = useFrappeAuth();
-    console.log('The currentUser is ', currentUser);
 
     if (isLoading) {
         return <div></div>;

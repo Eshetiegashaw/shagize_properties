@@ -13,7 +13,7 @@ function HomePage() {
 
 
     const { data: companyData } = useFrappeGetDoc("Company");
-    const { data: userData } = useFrappeGetDoc("User");
+    const { data: userData, isLoading, error } = useFrappeGetDoc("User");
 
     useEffect(() => {
         if (companyData) {
@@ -25,27 +25,31 @@ function HomePage() {
         if (userData) setUsers(userData);
     }, [userData]);
 
-
-
     return (
         <ContentLayout title="User List">
             <div className="min-h-screen p-1">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {users.length > 0 ? (
-                        users.map((user) => (
-                            <Card key={user.name} className="border shadow-sm">
-                                <CardHeader>
-                                    <CardTitle>{user.name}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>Email: {user.email}</p>
-                                </CardContent>
-                            </Card>
-                        ))
-                    ) : (
-                        <p>No users found.</p>
-                    )}
-                </div>
+                {isLoading ? (
+                    <p>Loading users...</p>
+                ) : error ? (
+                    <p>Error loading users: {error.message}</p>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {users.length > 0 ? (
+                            users.map((user) => (
+                                <Card key={user.name} className="border shadow-sm">
+                                    <CardHeader>
+                                        <CardTitle>{user.name}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p>Email: {user.email}</p>
+                                    </CardContent>
+                                </Card>
+                            ))
+                        ) : (
+                            <p>No users found.</p>
+                        )}
+                    </div>
+                )}
             </div>
         </ContentLayout>
     );
