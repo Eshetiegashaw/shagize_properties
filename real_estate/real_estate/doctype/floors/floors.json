@@ -1,0 +1,95 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{property}-{floor_name}",
+ "creation": "2025-11-07 21:19:31.738895",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "floor_information_section",
+  "property",
+  "floor_name",
+  "no_rooms",
+  "area",
+  "column_break_vyqo",
+  "image"
+ ],
+ "fields": [
+  {
+   "fieldname": "floor_information_section",
+   "fieldtype": "Section Break",
+   "label": "Floor Information"
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "floor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Floor Name",
+   "reqd": 1
+  },
+  {
+   "default": "0.0",
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Area (in m2)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vyqo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image"
+  },
+  {
+   "fieldname": "no_rooms",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Number of Rooms",
+   "non_negative": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-07 21:24:00.042200",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Floors",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
+}

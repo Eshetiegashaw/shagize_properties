@@ -6,7 +6,6 @@ export function ContentLayout({ title, children }) {
     <div>
       <Navbar title={title} />
       <div className="container py-8 px-1 sm:px-2">{children}</div>
-      {/* <Footer /> */}
     </div>
   );
 }
