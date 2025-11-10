@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 13:05:13.108975",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_type",
+  "payment_id",
+  "column_break_tlmy",
+  "rental_agreement",
+  "tenant",
+  "rental_units_section",
+  "units",
+  "confirmation_section",
+  "received_by",
+  "column_break_ixzb",
+  "received_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_id",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Payment ID",
+   "options": "PY-RNT-.YYYY.-\nPY-AMY-.YYYY.-",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rental_agreement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Rental Agreement",
+   "options": "Rental Agreement",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tlmy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "rental_agreement.tenant",
+   "fieldname": "tenant",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "rental_units_section",
+   "fieldtype": "Section Break",
+   "label": "Rental Units"
+  },
+  {
+   "fieldname": "units",
+   "fieldtype": "Table",
+   "label": "Units",
+   "options": "Rental Units",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_type",
+   "fieldtype": "Select",
+   "label": "Payment Type",
+   "options": "\nRent Payment\nAmenity Payment",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "confirmation_section",
+   "fieldtype": "Section Break",
+   "label": "Confirmation"
+  },
+  {
+   "fieldname": "received_by",
+   "fieldtype": "Data",
+   "label": "Received By",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ixzb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "received_at",
+   "fieldtype": "Date",
+   "label": "Received At",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-09 13:17:40.625917",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Rent Payment",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

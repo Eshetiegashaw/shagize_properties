@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 12:54:18.513673",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rent_agreement_section",
+  "agreement_number",
+  "tenant",
+  "start_date",
+  "end_date",
+  "security_deposit",
+  "column_break_lcsz",
+  "monthly_rent",
+  "payment_round",
+  "next_payment",
+  "agreement_status",
+  "rental_units_section",
+  "units",
+  "agreement_attachments_section",
+  "agreement_files",
+  "amended_from",
+  "confirmation_section",
+  "prepared_by",
+  "column_break_wmrf",
+  "prepared_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "agreement_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Agreement Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "monthly_rent",
+   "fieldtype": "Currency",
+   "label": "Monthly Rent",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_round",
+   "fieldtype": "Int",
+   "label": "Payment Round (in months)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "next_payment",
+   "fieldtype": "Date",
+   "label": "Next Payment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agreement_status",
+   "fieldtype": "Select",
+   "label": "Agreement Status"
+  },
+  {
+   "fieldname": "column_break_lcsz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rent_agreement_section",
+   "fieldtype": "Section Break",
+   "label": "Rent Agreement"
+  },
+  {
+   "fieldname": "agreement_attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Agreement Attachments"
+  },
+  {
+   "fieldname": "agreement_files",
+   "fieldtype": "Table",
+   "label": "Agreement Files",
+   "options": "Attachments"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Agreement",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Data",
+   "label": "Prepared By",
+   "reqd": 1
+  },
+  {
+   "fieldname": "confirmation_section",
+   "fieldtype": "Section Break",
+   "label": "Confirmation"
+  },
+  {
+   "fieldname": "column_break_wmrf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "prepared_at",
+   "fieldtype": "Datetime",
+   "label": "Prepared At",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rental_units_section",
+   "fieldtype": "Section Break",
+   "label": "Rental Units"
+  },
+  {
+   "fieldname": "units",
+   "fieldtype": "Table",
+   "label": "Units",
+   "options": "Rental Units"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-11-09 13:12:09.795501",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Rental Agreement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

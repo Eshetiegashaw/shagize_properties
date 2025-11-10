@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 12:59:41.202792",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "agreement",
+  "attachment_file"
+ ],
+ "fields": [
+  {
+   "fieldname": "agreement",
+   "fieldtype": "Data",
+   "label": "Agreement"
+  },
+  {
+   "fieldname": "attachment_file",
+   "fieldtype": "Attach",
+   "label": "Attachment File"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-09 13:00:27.169034",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Attachments",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
