@@ -9,9 +9,20 @@
   "rooms_information_section",
   "floor",
   "room_name",
+  "room_type",
   "area_in_m2",
   "column_break_qdxo",
-  "image"
+  "manual_rent",
+  "monthly_rent",
+  "status",
+  "furnish",
+  "section_break_uspf",
+  "images",
+  "column_break_xgcz",
+  "agent",
+  "avail_date",
+  "section_break_doyr",
+  "description"
  ],
  "fields": [
   {
@@ -48,15 +59,77 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "image",
-   "fieldtype": "Attach Image",
-   "label": "Image"
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "label": "Room Type",
+   "options": "Room Types",
+   "reqd": 1
+  },
+  {
+   "fieldname": "furnish",
+   "fieldtype": "Select",
+   "label": "Furnish",
+   "options": "\nFurnished\nSemi-Furnished\nUnfurnished"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nAvailable\nOccupied\nReserved\nUnder Maintenance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "avail_date",
+   "fieldtype": "Date",
+   "label": "Avail Date"
+  },
+  {
+   "fieldname": "section_break_uspf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "label": "Agent",
+   "options": "Agent"
+  },
+  {
+   "fieldname": "column_break_xgcz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "monthly_rent",
+   "fieldtype": "Float",
+   "label": "Monthly Rent",
+   "non_negative": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "manual_rent",
+   "fieldtype": "Check",
+   "label": "Manual Rent"
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "Table",
+   "label": "Images",
+   "options": "Room Images"
+  },
+  {
+   "fieldname": "section_break_doyr",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-07 21:27:41.202738",
+ "modified": "2025-11-09 11:44:28.256880",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Rooms",

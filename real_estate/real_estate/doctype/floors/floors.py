@@ -6,4 +6,14 @@ from frappe.model.document import Document
 
 
 class Floors(Document):
-	pass
+    pass
+
+
+# floor_name
+# property (link to Property doctype)
+# floor_number
+# total_units
+# status
+# description
+# images (attach images)
+# amenities (table) (link to Amenity doctype)

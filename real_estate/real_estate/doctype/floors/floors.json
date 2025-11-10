@@ -10,9 +10,13 @@
   "property",
   "floor_name",
   "no_rooms",
-  "area",
+  "status",
   "column_break_vyqo",
-  "image"
+  "floor_number",
+  "area",
+  "image",
+  "section_break_mtlp",
+  "description"
  ],
  "fields": [
   {
@@ -59,12 +63,35 @@
    "label": "Number of Rooms",
    "non_negative": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "floor_number",
+   "fieldtype": "Data",
+   "label": "Floor Number",
+   "reqd": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nInactive\nUnder Maintenance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_mtlp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-07 21:24:00.042200",
+ "modified": "2025-11-09 11:45:40.692799",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Floors",

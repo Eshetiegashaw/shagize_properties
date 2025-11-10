@@ -9,14 +9,22 @@
   "property_information_section",
   "company",
   "property_name",
+  "property_code",
+  "property_type",
   "no_floors",
   "area",
   "column_break_dvqa",
+  "total_units",
   "image",
   "preview",
+  "address",
+  "status",
+  "agents_section",
+  "agents",
+  "column_break_eafn",
+  "amenities",
   "secondary_informations_section",
-  "descriptions",
-  "column_break_gmpc"
+  "descriptions"
  ],
  "fields": [
   {
@@ -77,20 +85,70 @@
    "label": "Descriptions"
   },
   {
-   "fieldname": "column_break_gmpc",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "preview",
    "fieldtype": "Image",
    "label": "Preview",
    "read_only": 1
+  },
+  {
+   "fieldname": "property_code",
+   "fieldtype": "Data",
+   "label": "Property Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Link",
+   "label": "Property Type",
+   "options": "Property Types",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Address",
+   "options": "Address"
+  },
+  {
+   "fieldname": "total_units",
+   "fieldtype": "Int",
+   "label": "Total Units"
+  },
+  {
+   "fieldname": "amenities",
+   "fieldtype": "Table",
+   "label": "Amenities",
+   "options": "Amenities"
+  },
+  {
+   "fieldname": "agents_section",
+   "fieldtype": "Section Break",
+   "label": "Agents"
+  },
+  {
+   "fieldname": "agents",
+   "fieldtype": "Table",
+   "label": "Agents",
+   "options": "Property Agent"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nActive\nInactive\nUnder Maintenance",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_eafn",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-07 21:18:37.570513",
+ "modified": "2025-11-09 11:27:02.352555",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Property",
