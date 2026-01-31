@@ -1,16 +1,36 @@
-import { Sidebar } from "@/components/admin-panel/sidebar";
-import { Footer } from "@/components/admin-panel/footer";
-import { Outlet } from "react-router-dom";
-import AdminPanelLayout from "@/components/admin-panel/admin-panel-layout";
+
+import { Outlet, useLocation } from "react-router-dom";
+import { AuthenticatedLayout } from "@/components/layout/authenticated-layout";
+import { Header } from "@/components/layout/header";
+import { Main } from "@/components/layout/main";
+import { ThemeSwitch } from '@/components/shared/theme-switch'
+import { ProfileDropdown } from "@/components/shared/profile-dropdown";
+
 
 export default function Layout() {
-    return (
-        <AdminPanelLayout>
-            <div className="flex-1 flex flex-col min-h-screen">
-                <main className="flex-1 p-6 lg:ml-72">
-                    <Outlet />
-                </main>
-            </div>
-        </AdminPanelLayout>
-    );
+  const { pathname } = useLocation();
+  const headerTitleMap = {
+    "/": "Dashboard",
+    "/dashboard": "Dashboard",
+    "/properties": "Properties",
+    "/floors": "Floors",
+  };
+  const title = headerTitleMap[pathname] ?? "";
+
+  return (
+    <AuthenticatedLayout>
+      <>
+        <Header title={title}>
+          <div className='ms-auto flex items-center space-x-4'>
+            <ThemeSwitch />
+            <ProfileDropdown />
+          </div>
+        </Header>
+
+        <Main>
+          <Outlet />
+        </Main>
+      </>
+    </AuthenticatedLayout>
+  );
 }

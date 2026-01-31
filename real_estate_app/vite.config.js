@@ -13,6 +13,11 @@ export default defineConfig({
 		port: 8080,
 		proxy: proxyOptions,
 	},
+	// resolve: {
+	// 	alias: {
+	// 		"@": path.resolve(__dirname, "./src"),
+	// 	},
+	// },
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),
