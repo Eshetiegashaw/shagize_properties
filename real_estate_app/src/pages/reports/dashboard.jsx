@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFrappeGetDoc } from "frappe-react-sdk";
-import { ContentLayout } from "@/components/admin-panel/content-layout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Main } from "@/components/layout/main";
 
 
 function Dashboard() {
@@ -25,7 +25,7 @@ function Dashboard() {
 
 
     return (
-        <ContentLayout title="Dashboard">
+        <Main className="space-y-8 pb-10">
             <div className="min-h-screen p-1">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {users.length > 0 ? (
@@ -44,7 +44,7 @@ function Dashboard() {
                     )}
                 </div>
             </div>
-        </ContentLayout>
+        </Main>
     );
 }
 

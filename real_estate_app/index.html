@@ -14,7 +14,9 @@
 
     if (!window.frappe) window.frappe = {};
 
-    frappe.boot = JSON.parse({{ boot }});
+    // frappe.boot = JSON.parse("{{ boot }}");
+    const boot = window.frappe?.boot;
+
 
   </script>
   <script type="module" src="/src/main.jsx"></script>
