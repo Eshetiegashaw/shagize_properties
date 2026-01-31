@@ -69,25 +69,24 @@ export const sidebarData = {
 						{
 							title: "Properties",
 							url: "/properties",
+							icon: Monitor,
 						},
 						{
 							title: "Floors",
 							url: "/floors",
+							icon: Package,
 						},
 						{
 							title: "Rooms",
 							url: "/rooms",
+							icon: Building2,
 						},
 						{
 							title: "User Management",
 							url: "/user-management",
+							icon: Users,
 						},
 					],
-				},
-				{
-					title: "Floors",
-					url: "/floors",
-					icon: Package,
 				},
 				{
 					url: "/agents",
