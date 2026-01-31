@@ -27,7 +27,9 @@ export function Header({ className, fixed, title, children, ...props }) {
         'z-50 h-16 sticky top-0 transition-colors duration-300',
         'bg-slate-100 text-black dark:bg-slate-950 dark:text-white',
         fixed && 'header-fixed peer/header w-[inherit]',
-        offset > 10 && fixed ? 'shadow' : 'shadow-none',
+        offset > 10 && fixed
+          ? 'shadow'
+          : 'shadow-md shadow-slate-900/10 dark:shadow-black/40',
         className,
       )}
       {...props}
