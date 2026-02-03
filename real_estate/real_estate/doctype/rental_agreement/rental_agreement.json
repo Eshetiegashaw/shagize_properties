@@ -1,18 +1,17 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:RAG-{YY}-{MM}-{#####}",
  "creation": "2025-11-09 12:54:18.513673",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "rent_agreement_section",
-  "agreement_number",
   "tenant",
   "start_date",
   "end_date",
   "security_deposit",
   "column_break_lcsz",
-  "monthly_rent",
   "payment_round",
   "next_payment",
   "agreement_status",
@@ -27,13 +26,6 @@
   "prepared_at"
  ],
  "fields": [
-  {
-   "fieldname": "agreement_number",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Agreement Number",
-   "reqd": 1
-  },
   {
    "fieldname": "tenant",
    "fieldtype": "Link",
@@ -54,13 +46,6 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "End Date",
-   "reqd": 1
-  },
-  {
-   "fieldname": "monthly_rent",
-   "fieldtype": "Currency",
-   "label": "Monthly Rent",
-   "non_negative": 1,
    "reqd": 1
   },
   {
@@ -156,10 +141,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-09 13:12:09.795501",
+ "modified": "2026-02-03 16:09:48.862335",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Rental Agreement",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

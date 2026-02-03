@@ -6,13 +6,20 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "agent_information_section",
   "agent_name",
-  "license_number",
   "commission_rate",
+  "license_number",
   "status",
+  "column_break_vqrv",
   "image",
+  "email",
+  "phone",
   "properties_section",
   "agent_property",
+  "address_and_contact_section",
+  "contact",
+  "column_break_ahpr",
   "address"
  ],
  "fields": [
@@ -35,7 +42,8 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Active\nSuspended\nInactive"
+   "options": "Pending\nActive\nSuspended\nInactive",
+   "reqd": 1
   },
   {
    "fieldname": "image",
@@ -55,22 +63,58 @@
    "read_only": 1
   },
   {
+   "fieldname": "agent_name",
+   "fieldtype": "Data",
+   "label": "Agent Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vqrv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Primary Phone",
+   "read_only": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Primary E-mail",
+   "read_only": 1
+  },
+  {
+   "fieldname": "address_and_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Address and Contact"
+  },
+  {
+   "fieldname": "column_break_ahpr",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "address",
    "fieldtype": "Link",
    "label": "Address",
    "options": "Address"
   },
   {
-   "fieldname": "agent_name",
-   "fieldtype": "Data",
-   "label": "Agent Name",
-   "reqd": 1
+   "fieldname": "agent_information_section",
+   "fieldtype": "Section Break",
+   "label": "Agent Information"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-09 12:53:51.337529",
+ "modified": "2026-02-03 16:35:30.446367",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Agent",
