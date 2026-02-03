@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "rent_agreement_section",
   "payment_type",
   "payment_id",
   "column_break_tlmy",
@@ -12,6 +13,22 @@
   "tenant",
   "rental_units_section",
   "units",
+  "payment_information_section",
+  "due_date",
+  "amount_due",
+  "amount_paid",
+  "payment_mode",
+  "reference_no",
+  "column_break_vcnx",
+  "payment_date",
+  "payment_due",
+  "balance",
+  "status",
+  "supplelementary_information_section",
+  "remark",
+  "column_break_nhgb",
+  "receipts",
+  "preview",
   "confirmation_section",
   "received_by",
   "column_break_ixzb",
@@ -91,12 +108,99 @@
    "label": "Received At",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "rent_agreement_section",
+   "fieldtype": "Section Break",
+   "label": "Rent Agreement"
+  },
+  {
+   "fieldname": "payment_information_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Information"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "amount_due",
+   "fieldtype": "Float",
+   "label": "Amount Due"
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Float",
+   "label": "Amount Paid"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Link",
+   "label": "Payment Mode",
+   "options": "Mode of Payment"
+  },
+  {
+   "description": "If the payment mode needs a reference number",
+   "fieldname": "reference_no",
+   "fieldtype": "Data",
+   "label": "Reference No"
+  },
+  {
+   "fieldname": "column_break_vcnx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "fieldname": "payment_due",
+   "fieldtype": "Float",
+   "label": "Payment due"
+  },
+  {
+   "description": "Calculated from (amount_due - amount_paid)",
+   "fieldname": "balance",
+   "fieldtype": "Float",
+   "label": "Balance"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPending\nPaid\nOverdue\nPartial"
+  },
+  {
+   "fieldname": "supplelementary_information_section",
+   "fieldtype": "Section Break",
+   "label": "Supplelementary Information"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Small Text",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "column_break_nhgb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receipts",
+   "fieldtype": "Attach",
+   "label": "Receipts"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "Image",
+   "label": "Preview"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-09 13:17:40.625917",
+ "modified": "2026-02-03 16:20:01.948251",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Rent Payment",

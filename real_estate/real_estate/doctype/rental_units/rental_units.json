@@ -10,7 +10,8 @@
   "room",
   "start_date",
   "end_date",
-  "for"
+  "monthly_rent",
+  "purpose"
  ],
  "fields": [
   {
@@ -36,10 +37,19 @@
    "reqd": 1
   },
   {
-   "fieldname": "for",
+   "fieldname": "purpose",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "For",
+   "label": "For (Purpose)",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "room.manual_rent",
+   "fieldname": "monthly_rent",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Monthly Rent",
+   "non_negative": 1,
    "reqd": 1
   }
  ],
@@ -47,7 +57,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-09 13:11:09.980205",
+ "modified": "2026-02-03 16:08:02.134606",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Rental Units",

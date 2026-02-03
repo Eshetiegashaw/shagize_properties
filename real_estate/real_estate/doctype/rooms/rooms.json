@@ -106,8 +106,10 @@
   {
    "fieldname": "monthly_rent",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Monthly Rent",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "default": "0",
@@ -129,7 +131,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-09 11:44:28.256880",
+ "modified": "2026-02-03 16:05:20.843548",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Rooms",

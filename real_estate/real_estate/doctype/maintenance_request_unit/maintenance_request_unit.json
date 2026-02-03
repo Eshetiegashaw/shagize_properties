@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-02-03 16:49:57.710425",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "room",
+  "priority",
+  "column_break_gjdk",
+  "issue_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "room",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Room",
+   "options": "Rooms",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gjdk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issue_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Issue Type",
+   "options": "All\nPlumbing\nElectrical\nAppliance\nCombined\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-02-03 16:54:01.153267",
+ "modified_by": "Administrator",
+ "module": "Real Estate",
+ "name": "Maintenance Request Unit",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
