@@ -9,6 +9,8 @@ import Dashboard from "@/pages/reports/dashboard";
 import PropertyLists from "@/pages/property/properties";
 import FloorLists from "./pages/property/floors";
 import RoomLists from "./pages/property/rooms";
+import FloorDetail from "./pages/property/floorDetail";
+import RoomDetail from "./pages/property/roomDetail";
 
 function App() {
 
@@ -27,9 +29,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/properties" element={<PropertyLists />} />
           <Route path="/floors" element={<FloorLists />} />
-          {/* <Route path="/floor/:floorId" element={<FloorDetail />} /> */}
+          <Route path="/floor/:floorId" element={<FloorDetail />} />
           <Route path="/rooms" element={<RoomLists />} />
-          {/* <Route path="/room/:roomId" element={<RoomDetail />} /> */}
+          <Route path="/room/:roomId" element={<RoomDetail />} />
         </Route>
 
         <Route

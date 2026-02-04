@@ -9,13 +9,21 @@ import { ProfileDropdown } from "@/components/shared/profile-dropdown";
 
 export default function Layout() {
   const { pathname } = useLocation();
-  const headerTitleMap = {
-    "/": "Dashboard",
-    "/dashboard": "Dashboard",
-    "/properties": "Properties",
-    "/floors": "Floors",
-  };
-  const title = headerTitleMap[pathname] ?? "";
+  const headerTitleMap = [
+    { pattern: /^\/$/, title: "Dashboard" },
+    { pattern: /^\/dashboard$/, title: "Dashboard" },
+    { pattern: /^\/properties$/, title: "Properties" },
+    { pattern: /^\/floors$/, title: "Floors" },
+    { pattern: /^\/floor\/[^/]+$/, title: "Floor Details" },
+    { pattern: /^\/rooms$/, title: "Rooms" },
+    { pattern: /^\/room\/[^/]+$/, title: "Room Details" },
+    { pattern: /^\/agents$/, title: "Agents" },
+    { pattern: /^\/clients$/, title: "Clients" },
+    { pattern: /^\/appointments$/, title: "Appointments" },
+  ];
+
+  const title =
+    headerTitleMap.find(({ pattern }) => pattern.test(pathname))?.title ?? "";
 
   return (
     <AuthenticatedLayout>

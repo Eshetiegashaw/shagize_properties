@@ -2,16 +2,19 @@
 import { Main } from '@/components/layout/main'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { useFrappeGetDocList } from 'frappe-react-sdk'
+import { useFrappeGetDocCount, useFrappeGetDocList } from 'frappe-react-sdk'
 import { Building2, Users, Maximize2, Layers, TrendingUp, DollarSign } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import NumberCards from '../com/numberCard'
 
 export default function PropertyLists() {
     const [floors, setFloors] = useState([]);
-
     const [properties, setProperties] = useState([]);
+    const [rooms, setRooms] = useState([]);
+
+
     const { data: floorData } = useFrappeGetDocList("Floors", {
         fields: ['name', 'floor_name', 'no_rooms', 'area', 'image']
     });
@@ -19,6 +22,10 @@ export default function PropertyLists() {
     const { data: proertiesData, isLoading, error } = useFrappeGetDocList("Property", {
         fields: ['name', 'no_floors', 'area', 'image']
     });
+    const { data: roomCount } = useFrappeGetDocCount("Rooms");
+
+    // roomCount is a number
+
 
     useEffect(() => {
         if (proertiesData) {
@@ -33,10 +40,10 @@ export default function PropertyLists() {
 
     // Number Cards Data
     const stats = [
-        { label: 'Total Floors', value: floors.length.toString(), icon: Layers, color: 'text-blue-600', bg: 'bg-blue-100' },
-        { label: 'Total Rooms', value: '48', icon: Building2, color: 'text-green-600', bg: 'bg-green-100' },
-        { label: 'Occupants', value: '124', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100' },
-        { label: 'Monthly Revenue', value: '$14,200', icon: DollarSign, color: 'text-orange-600', bg: 'bg-orange-100' },
+        { label: 'Total Floors', value: floors.length.toString(), icon: Layers },
+        { label: 'Total Rooms', value: roomCount ? roomCount.toString() : '0', icon: Building2 },
+        { label: 'Occupants', value: '124', icon: Users },
+        { label: 'Monthly Revenue', value: '$14,200', icon: DollarSign },
     ]
 
     const chartData = [
@@ -53,28 +60,9 @@ export default function PropertyLists() {
 
     return (
         <Main className="space-y-8 pb-10">
-            {/* 1. Header */}
-            <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-bold tracking-tight">Property Dashboard</h1>
-                <p className="text-muted-foreground">Real-time overview of your real estate portfolio.</p>
-            </div>
 
             {/* 2. NUMBER CARDS (Restored) */}
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                {stats.map((stat) => (
-                    <Card key={stat.label} className="border shadow-sm">
-                        <CardContent className="flex items-center gap-4 p-6">
-                            <div className={cn("rounded-full p-3", stat.bg, stat.color)}>
-                                <stat.icon size={20} />
-                            </div>
-                            <div>
-                                <p className="text-sm font-medium text-muted-foreground leading-none mb-1">{stat.label}</p>
-                                <h3 className="text-2xl font-bold">{stat.value}</h3>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
+            <NumberCards stats={stats} />
 
             {/* 3. Middle Row: Chart & Tenant List */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
