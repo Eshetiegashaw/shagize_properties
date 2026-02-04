@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/assets/real_estate/real_estate_app/ && yarn copy-html-entry",
+    "watch": "vite build --watch",
     "lint": "eslint .  --ext .js,.jsx,.ts,.tsx  --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "copy-html-entry": "cp ../real_estate/public/real_estate_app/index.html ../real_estate/www/real_estate.html",

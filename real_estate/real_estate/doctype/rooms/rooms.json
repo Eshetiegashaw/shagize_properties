@@ -17,10 +17,11 @@
   "status",
   "furnish",
   "section_break_uspf",
-  "images",
-  "column_break_xgcz",
+  "image",
   "agent",
   "avail_date",
+  "column_break_xgcz",
+  "images",
   "section_break_doyr",
   "description"
  ],
@@ -86,7 +87,8 @@
   },
   {
    "fieldname": "section_break_uspf",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Room Images"
   },
   {
    "fieldname": "agent",
@@ -125,13 +127,19 @@
   },
   {
    "fieldname": "section_break_doyr",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Room Description"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Image"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-02-03 16:05:20.843548",
+ "modified": "2026-02-04 10:21:38.725647",
  "modified_by": "Administrator",
  "module": "Real Estate",
  "name": "Rooms",

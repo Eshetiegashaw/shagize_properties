@@ -3,10 +3,13 @@ import { Main } from '@/components/layout/main'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { useFrappeGetDocList } from 'frappe-react-sdk'
-import { Building2, Users, Maximize2, Layers, TrendingUp, DollarSign } from 'lucide-react'
+import { Building2, Users, Maximize2, Layers, TrendingUp, DollarSign, PlusIcon, Settings2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { FaLongArrowAltRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import NumberCards from '../com/numberCard'
 
 export default function FloorLists() {
     const [floors, setFloors] = useState([]);
@@ -21,40 +24,33 @@ export default function FloorLists() {
 
     // Number Cards Data
     const stats = [
-        { label: 'Total Floors', value: floors.length.toString(), icon: Layers, color: 'text-blue-600', bg: 'bg-blue-100' },
-        { label: 'Total Rooms', value: '48', icon: Building2, color: 'text-green-600', bg: 'bg-green-100' },
-        { label: 'Occupants', value: '124', icon: Users, color: 'text-purple-600', bg: 'bg-purple-100' },
-        { label: 'Monthly Revenue', value: '$14,200', icon: DollarSign, color: 'text-orange-600', bg: 'bg-orange-100' },
+        { label: 'Total Floors', value: floors.length.toString(), icon: Layers },
+        { label: 'Total Rooms', value: '48', icon: Building2 },
+        { label: 'Occupants', value: '124', icon: Users },
+        { label: 'Monthly Revenue', value: '$14,200', icon: DollarSign },
     ]
 
     return (
         <Main className="space-y-8 pb-10">
             {/* 1. Header */}
-            <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-bold tracking-tight">Property Dashboard</h1>
-                <p className="text-muted-foreground">Real-time overview of your real estate portfolio.</p>
+            <div className="flex justify-between items-center gap-2 w-full">
+                <span className="inline-flex items-center gap-1  font-bold text-orange-500" >
+                    <Settings2 /> Floor Management
+                </span>
+                <button
+                    className="inline-flex items-center gap-1 rounded-md px-3 py-1.5 text-sm font-semibold text-white/95 bg-orange-600 "
+                    onClick={() => console.log("Add Floors clicked")}
+                >
+                    <PlusIcon /> Add Floor
+                </button>
             </div>
 
             {/* 2. NUMBER CARDS (Restored) */}
-            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-                {stats.map((stat) => (
-                    <Card key={stat.label} className="border shadow-sm">
-                        <CardContent className="flex items-center gap-4 p-6">
-                            <div className={cn("rounded-full p-3", stat.bg, stat.color)}>
-                                <stat.icon size={20} />
-                            </div>
-                            <div>
-                                <p className="text-sm font-medium text-muted-foreground leading-none mb-1">{stat.label}</p>
-                                <h3 className="text-2xl font-bold">{stat.value}</h3>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
+            <NumberCards stats={stats} />
 
             {/* 4. Bottom Section: Floor Cards with Name at Top */}
             <section className="space-y-4">
-                <h2 className="text-xl font-semibold">Floor Directory</h2>
+                {floors.length > 0 && <h2 className="text-xl font-semibold">Floor Directory</h2>}
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {floors.map((flr) => (
                         <Card key={flr?.name} className="group relative flex flex-col overflow-hidden border-none bg-transparent shadow-none">
@@ -94,10 +90,23 @@ export default function FloorLists() {
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <button className="text-xs font-semibold text-white/95 hover:text-white rounded-md bg-white/10 px-3 py-1.5 backdrop-blur-sm">
-                                                Details →
-                                            </button>
+                                            {/* Details */}
+                                            <Link
+                                                to={`/floor/${flr.name}`}
+                                                className="
+                                                    inline-flex items-center gap-1.5
+                                                    rounded-md px-3 py-1.5
+                                                    text-sm font-semibold text-white/95
+                                                    bg-white/10 backdrop-blur-sm
+                                                    hover:bg-orange-500 hover:text-white
+                                                    active:scale-95
+                                                    transition-all duration-200
+                                                    focus:outline-none focus:ring-2 focus:ring-white/30
+                                                "
+                                            >
+                                                Details
+                                                <span aria-hidden><FaLongArrowAltRight /></span>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
