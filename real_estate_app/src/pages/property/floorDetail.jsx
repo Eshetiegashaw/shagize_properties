@@ -7,7 +7,7 @@ import { Building2, Users, Maximize2, Layers, TrendingUp, DollarSign, Filter, Bo
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { FaBuilding, FaLongArrowAltRight } from 'react-icons/fa'
+import { FaAngleDoubleLeft, FaBuilding, FaCaretSquareLeft, FaLongArrowAltRight } from 'react-icons/fa'
 import { Link, useParams } from 'react-router-dom'
 import NumberCards from '../com/numberCard'
 import { formatNumber } from '@/utils/number'
@@ -52,12 +52,9 @@ export default function FloorDetail() {
         <Main className="space-y-8 pb-10">
             {/* 1. Header */}
             <div className="flex justify-between items-center gap-2 w-full">
-                <span className="font-bold text-orange-500">
-                    {/* Floor :
-                </span>
-                <span className="tracking-tight"> */}
-                    {floorId || ""}
-                </span>
+                <Link to="/rooms" className="inline-flex items-center gap-1.5">
+                    <FaAngleDoubleLeft /> <span className='font-bold text-orange-500'>{floorId || ""}</span>
+                </Link>
 
                 {/* Right side: Add Rooms button */}
                 <button
