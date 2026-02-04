@@ -2,7 +2,7 @@
 import { Main } from '@/components/layout/main'
 import { Card, CardContent } from '@/components/ui/card'
 import { useFrappeGetCall, useFrappeGetDocList } from "frappe-react-sdk";
-import { Building2, DollarSign, ChartBarStacked, Layers3, AreaChart } from 'lucide-react'
+import { Building2, DollarSign, ChartBarStacked, Layers3, AreaChart, AlignLeftIcon, LucideAlignLeft } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { statusColorMap } from '@/utils/color'
@@ -15,6 +15,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from '@/components/ui/carousel';
+import { FaAngleDoubleLeft, FaCaretLeft, FaCaretSquareLeft, FaLongArrowAltLeft } from 'react-icons/fa';
 
 export default function RoomDetail() {
     const { roomId } = useParams();
@@ -57,9 +58,9 @@ export default function RoomDetail() {
         <Main className="space-y-8 pb-10">
             {/* 1. Header */}
             <div className="flex justify-between items-center gap-2 w-full">
-                <span className="font-bold text-orange-500">
-                    {roomId || ""}
-                </span>
+                <Link to="/rooms" className="inline-flex items-center gap-1.5">
+                    <FaAngleDoubleLeft /> <span className='font-bold text-orange-500'>{roomId || ""}</span>
+                </Link>
 
                 {/* Right side: Add Rooms button */}
                 <span className={`rounded-md px-3 py-1.5 text-sm font-semibold ${statusColorMap[room.status?.toLowerCase()] || "bg-gray-200 text-black"}`} >

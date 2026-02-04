@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Link } from 'react-router-dom'
 import { FaLongArrowAltRight } from 'react-icons/fa'
+import { statusColorMap } from '@/utils/color'
 
 export default function RoomLists() {
     const [rooms, setRooms] = useState([]);
@@ -88,37 +89,55 @@ export default function RoomLists() {
                                 {/* Name + Stats + Action inside image (bottom) */}
                                 <div className="absolute bottom-3 left-4 right-4">
                                     <div className="rounded-md bg-black/45 px-3 py-2 text-white/95">
+                                        <div className="flex items-center justify-between">
+                                            <h3 className="font-bold text-lg text-orange-500 drop-shadow-md">
+                                                {room?.room_name}
+                                            </h3>
+
+                                            {/* {room.status?.toLowerCase() !== 'occupied' && ( */}
+                                            <button
+                                                onClick={room.status?.toLowerCase() === "available" ? `/room/${room.name}` : "#"}
+                                                className={`
+                                                        inline-flex items-center gap-1.5
+                                                        rounded-md px-3 py-1.5
+                                                        text-sm font-semibold text-white/95
+                                                        active:scale-95
+                                                        transition-all duration-200
+                                                        focus:outline-none focus:ring-2 focus:ring-white/30
+                                                        ${statusColorMap[room.status?.toLowerCase()] || "bg-gray-200 text-black"}
+                                                    `}
+                                            >
+                                                {room.status?.toLowerCase() === 'available' ? "Rent Now" : room.status}
+                                            </button>
+                                        </div>
+                                        <br />
+                                        <hr />
+                                        <br />
                                         <div className="flex items-end justify-between gap-4">
-                                            <div>
-                                                <h3 className="font-bold text-lg text-orange-500 drop-shadow-md">
-                                                    {room?.room_name}
-                                                </h3>
-                                                <div className="mt-2 flex items-center gap-4">
-                                                    <div className="flex flex-col">
-                                                        <span className="text-[10px] uppercase font-bold tracking-widest">Room Type</span>
-                                                        <span className="text-sm font-medium">{room?.room_type}</span>
-                                                    </div>
-                                                    <div className="flex flex-col">
-                                                        <span className="text-[10px] uppercase font-bold tracking-widest">Area</span>
-                                                        <span className="text-sm font-medium">{room?.area_in_m2}</span>
-                                                    </div>
-                                                </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] uppercase font-bold tracking-widest">Room Type</span>
+                                                <span className="text-sm font-medium">{room?.room_type}</span>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] uppercase font-bold tracking-widest">Area</span>
+                                                <span className="text-sm font-medium">{room?.area_in_m2}</span>
                                             </div>
                                             <Link
                                                 to={`/room/${room.name}`}
                                                 className="
-                                                    inline-flex items-center gap-1.5
-                                                    rounded-md px-3 py-1.5
-                                                    text-sm font-semibold text-white/95
-                                                    bg-white/10 backdrop-blur-sm
-                                                    hover:bg-orange-500 hover:text-white
-                                                    active:scale-95
-                                                    transition-all duration-200
-                                                    focus:outline-none focus:ring-2 focus:ring-white/30
+                                                inline-flex items-center gap-1.5
+                                                rounded-md px-3 py-1.5
+                                                text-sm font-semibold text-white/95
+                                                bg-white/10 backdrop-blur-sm
+                                                ring-0 ring-orange-500 ring-offset-[0.5px] ring-offset-transparent
+                                                hover:ring-1 hover:ring-orange-600  
+                                                transition-all duration-300 ease-out 
                                                 "
                                             >
                                                 Details
-                                                <span aria-hidden><FaLongArrowAltRight /></span>
+                                                <span aria-hidden>
+                                                    <FaLongArrowAltRight />
+                                                </span>
                                             </Link>
                                         </div>
                                     </div>
