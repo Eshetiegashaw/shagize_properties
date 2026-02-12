@@ -242,6 +242,12 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# Force the 'home_page' to your UI if not logged in
+home_page = "real_estate"
+login_redirect_url = "/real_estate"
+website_redirects = [{"source": "/", "target": "/real_estate"}]
+
 website_route_rules = [
+    # {"from_route": "/login", "to_route": "real_estate"},
     {"from_route": "/real_estate/<path:app_path>", "to_route": "real_estate"},
 ]
